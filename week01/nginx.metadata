@@ -1,0 +1,117 @@
+[
+    {
+        "Id": "sha256:08b152afcfae220e9709f00767054b824361c742ea03a9fe936271ba520a0a4b",
+        "RepoTags": [
+            "nginx:latest"
+        ],
+        "RepoDigests": [
+            "nginx@sha256:8f335768880da6baf72b70c701002b45f4932acae8d574dedfddaf967fc3ac90"
+        ],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2021-07-22T10:13:19.618829582Z",
+        "Container": "2997e2321de26e96aff43069d29f2d683a6c98fe395084cd3ca90721bc3e748a",
+        "ContainerConfig": {
+            "Hostname": "2997e2321de2",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.21.1",
+                "NJS_VERSION=0.6.1",
+                "PKG_RELEASE=1~buster"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) ",
+                "CMD [\"nginx\" \"-g\" \"daemon off;\"]"
+            ],
+            "Image": "sha256:6b7d95b7a3922d21287da04a02bac3bb129b38e7c96dc39b1be5da89d12de9ba",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "DockerVersion": "20.10.7",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.21.1",
+                "NJS_VERSION=0.6.1",
+                "PKG_RELEASE=1~buster"
+            ],
+            "Cmd": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "Image": "sha256:6b7d95b7a3922d21287da04a02bac3bb129b38e7c96dc39b1be5da89d12de9ba",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 133175501,
+        "VirtualSize": 133175501,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/9e972f58ce4d6316308af2fe45a65a4c4f4781e6ccfedc871d4e23024420e1da/diff:/var/lib/docker/overlay2/d4503dd5045b524f7a0f4bd9ff690bcac349f121dc842a2885e2d09f838f9113/diff:/var/lib/docker/overlay2/754393aef9d231294f9dd3eee000e950ea7e2df74f6067a98ce3ae90a9617b5f/diff:/var/lib/docker/overlay2/7e62612d8f7285fd292f2571020ce2acaa27c5ffdebb919199ab841c7e72fc92/diff:/var/lib/docker/overlay2/c8bfac4720f8eee66d7d3f26a10123e8f983dc4ea5ee6de18d2f88a25e381dfe/diff",
+                "MergedDir": "/var/lib/docker/overlay2/6e9102c90d12e30308df7d1076f0ad18ee6998b1f43c3a878e80760072b2025a/merged",
+                "UpperDir": "/var/lib/docker/overlay2/6e9102c90d12e30308df7d1076f0ad18ee6998b1f43c3a878e80760072b2025a/diff",
+                "WorkDir": "/var/lib/docker/overlay2/6e9102c90d12e30308df7d1076f0ad18ee6998b1f43c3a878e80760072b2025a/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:814bff7343242acfd20a2c841e041dd57c50f0cf844d4abd2329f78b992197f4",
+                "sha256:7c0b223167b96d7deaacf1e1d2d35892166645b09b17bcc8675a4d882ef84893",
+                "sha256:59b01b87c9e7f668b740d23eb872c5964636c33aef795f1186f08b172197bc35",
+                "sha256:988d9a3509bbb7ea8037d4eba3a5e0ada5dc165144c8ff0df89c0048d1ac6132",
+                "sha256:b857347059916922b353147882544f17bb96e64c639081c0677bf386c446be4f",
+                "sha256:e3135447ca3e69c6975aee1621c406e3865e0e143c807bbdcf05abefa56054a2"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]
