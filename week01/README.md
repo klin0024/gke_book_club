@@ -173,7 +173,7 @@ docker rmi $(docker ps -q)
 - Docker Registry: https://docs.docker.com/registry/
 - Harbor: https://goharbor.io/docs/2.3.0/
   
-  [Harbor Installation](harbor.md)
+  補充: [Harbor Installation](harbor.md)
 - Artifact Registry: https://cloud.google.com/artifact-registry/docs/quickstarts
 
 ```

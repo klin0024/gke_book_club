@@ -13,10 +13,6 @@ docker volume
 docker network
 ```
 
-```
-sudo yum install bridge-utils
-```
-
 ### 進階管理
 
 ```
@@ -33,3 +29,27 @@ docker system
 
 
 ### Dockerfile
+
+FROM
+
+MAINTAINER
+
+ENV
+
+RUN
+
+ADD
+COPY
+
+EXPOSE
+VOLUME
+USER
+WORKDIR
+
+CMD
+ENTRYPOINT
+
+
+```
+docker build
+```
