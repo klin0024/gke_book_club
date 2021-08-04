@@ -21,6 +21,7 @@ Openssl	|Latest is preferred	|Used to generate certificate and keys for Harbor
 ##### Network ports
 
 Port |Protocol |Description
+:----|:----|:----
 443	|HTTPS	|Harbor portal and core API accept HTTPS requests on this port. You can change this port in the configuration file.
 4443 |HTTPS	|Connections to the Docker Content Trust service for Harbor. Only required if Notary is enabled. You can change this port in the configuration file.
 80 |HTTP |Harbor portal and core API accept HTTP requests on this port. You can change this port in the configuration file.
