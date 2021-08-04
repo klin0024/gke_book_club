@@ -91,7 +91,11 @@ https:
 ./install.sh
 ```
 
+- Login Harbor
 
+https://harbor.example.com
+default username: admin
+default password: Harbor12345
 
 ### Deploying Harbor with High Availability via Helm
 

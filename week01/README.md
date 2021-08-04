@@ -66,7 +66,7 @@ docker images
 ```
 docker inspect
 ```
-[metadata](image_metadata.json)
+[example](image_metadata.json)
 
 - Remove one or more images
 
@@ -78,9 +78,13 @@ docker rmi
 docker rmi $(docker images -q)
 ```
 
+- Save one or more images to a tar archive
+
 ```
 docker save -o 
 ```
+
+- Load an image from a tar archive
 
 ```
 docker load -i
@@ -88,6 +92,7 @@ docker load -i
 
 ### 容器
 
+- Run a command in a new container
 
 ```
 docker run
@@ -108,6 +113,8 @@ docker run -d -v /some/content:/usr/share/nginx/html
 ```
 docker run -d -e NGINX_PORT=80
 ```
+
+- List containers
 
 ```
 docker ps
@@ -165,6 +172,7 @@ docker rmi $(docker ps -q)
 
 - Docker Registry: https://docs.docker.com/registry/
 - Harbor: https://goharbor.io/docs/2.3.0/
+  [Harbor Installation](harbor.md)
 - Artifact Registry: https://cloud.google.com/artifact-registry/docs/quickstarts
 
 ```
