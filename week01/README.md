@@ -39,21 +39,36 @@ Server: Docker Engine - Community
 
 ##### 從 Marketplace 部署
 
-
+![Marketplace](images/01.JPG)
 
 ### 映像檔
+
+- Pull an image or a repository from a registry
 
 ```
 docker pull 
 ```
 
+- Search the Docker Hub for images
+
+```
+docker search
+```
+
+- List images
+
 ```
 docker images
 ```
 
+- Return low-level information on Docker objects
+
 ```
 docker inspect
 ```
+[metadata](image_metadata.json)
+
+- Remove one or more images
 
 ```
 docker rmi
@@ -107,6 +122,10 @@ docker inspect
 ```
 
 ```
+docker log
+```
+
+```
 docker exec -it
 ```
 
@@ -120,6 +139,10 @@ docker start
 
 ```
 docker restart
+```
+
+```
+docker cp
 ```
 
 ```
