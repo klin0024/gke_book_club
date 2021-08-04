@@ -124,40 +124,64 @@ docker ps
 docker ps -a
 ```
 
+- Return low-level information on Docker objects
+
 ```
 docker inspect
 ```
 
+- Fetch the logs of a container
+
 ```
-docker log
+docker logs
 ```
 
 ```
-docker exec -it
+docker logs -f
 ```
+
+- Run a command in a running container
+
+```
+docker exec
+```
+
+```
+docker exec -it  -- /bin/bash
+```
+
+- Stop one or more running containers
 
 ```
 docker stop
 ```
 
+- Start one or more stopped containers
+
 ```
 docker start
 ```
+
+- Restart one or more containers
 
 ```
 docker restart
 ```
 
+- Copy files/folders between a container and the local filesystem
+
 ```
 docker cp
 ```
+
+- Remove one or more containers
 
 ```
 docker rm
 ```
 
 ```
-docker rmi $(docker ps -q)
+docker rm $(docker ps -q)
 ```
 
 ### 倉庫
@@ -176,18 +200,53 @@ docker rmi $(docker ps -q)
   補充: [Harbor Installation](harbor.md)
 - Artifact Registry: https://cloud.google.com/artifact-registry/docs/quickstarts
 
+- Log in to a Docker registry
+
 ```
 docker login
 ```
+
+- Log out from a Docker registry
+
+```
+docker logout
+```
+
+- Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
 
 ```
 docker tag
 ```
 
+- Push an image or a repository to a registry
+
 ```
 docker push
 ```
 
+- register gcloud as a Docker credential helper
+
 ```
 gcloud auth configure-docker
 ```
+
+##### Docker Credential
+
+Docker 將身份驗證設置保存在配置文件 config.json 中
+
+- credHelpers
+
+如果您使用 Docker 憑據幫助程序進行身份驗證，Container Registry 會將憑據幫助程序設置存儲credHelpers在文件的 部分中
+
+- auths
+
+如果您使用 Docker 使用令牌或服務帳戶密鑰作為密碼登錄，Docker 會auths在文件的部分中存儲您的憑據的 base64 編碼版本 
+
+- credStore
+
+如果您配置了 憑證存儲 來管理憑證，則憑證存儲的設置credStore位於文件的部分中
+
+##### 推送私有倉庫
+
+- Harbor
+- Artifact Registry
