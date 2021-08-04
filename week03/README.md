@@ -32,7 +32,8 @@ docker run -d -p 80:80 --name mywebsite mywebsite
 
 - 查看首頁畫面
 
-http://<ip>:80/
+http://\<ip\>
+
 ![index](images/01.png)
 
 
