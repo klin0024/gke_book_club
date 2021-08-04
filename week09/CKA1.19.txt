@@ -1,0 +1,370 @@
+01 Task - 英文
+Create a new ClusterRole named deployment-clusterrole that only allows the creation of the following resource types:
+
+Deployment
+StatefulSet
+DaemonSet
+Create a new ServiceAccount named cicd-token in the existing namespace app-team1.
+Limited to namespace app-team1, bind the new ClusterRole deployment-clusterrole to the new ServiceAccount cicd-token.
+kubectl create ns app-team1
+kubectl create serviceaccount cicd-token -n app-team1
+kubectl create clusterrole deployment-clusterrole --verb=create --resource=deployment,statefulset,daemonset
+
+#limted to the namespace app-team1。需要限制的是namespace级别，clusterrolebinding为设置全局，rolebinding正确
+kubectl create rolebinding cicd-clusterrole --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token
+
+  
+ 
+02 Task - 英文
+Set the node named ek8s-node-1 as unavaliable and reschedule all the pods running on it.
+
+kubectl cordon ek8s-node-1
+kubectl drain ek8s-node-1 --delete-local-data --ignore-daemonsets --force
+
+  
+ 
+03 Task - 英文
+Given an existing Kubernetes cluster running version 1.18.8，upgrade all of Kubernetes control plane and node components on the master node only to version 1.19.0。
+
+You are also expected to upgrade kubelet and kubectl on the master node。
+
+Be sure to drain the master node
+before upgrading it and uncordon it after the upgrade.
+Do not upgrade the worker nodes,etcd,the container manager,the CNI plugin,the DNS service or any other addons.
+
+apt update
+apt-cache policy kubeadm
+apt-get update && apt-get install -y --allow-change-held-packages kubeadm=1.19.0
+kubeadm version #检查kubeadm版本
+kubectl drain master --ignore-daemonsets --delete-local-data --force #腾空控制平面节点
+sudo kubeadm upgrade plan # 命令查看可升级的版本信息
+sudo kubeadm upgrade apply v1.19.0 --etcd-upgrade=false #查看版本信息时，排除etcd从3.4.3-0升到3.4.7-0
+kubectl uncordon master
+sudo kubeadm upgrade node #升级其他控制面节点
+apt-get update && apt-get install -y --allow-change-held-packages kubelet=1.19.0 kubectl=1.19.0
+#升级其他控制面节点
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+
+  
+ 
+04 Task - 中文
+首先，为运行在https://127.0.0.1:2379 上的现有etcd 实例创建快照并将快照保存到/data/backup/etcd-snapshot.db。
+
+为给定实例创建快照预计能在几秒钟内完成。如果该操作似乎挂起，则命令可能有问题。用ctrl+c 来取消操作，然后重试。
+
+然后还原位于/var/data/etcd-snapshot-previous.db的现有先前快照。
+
+提供了以下TLS证书和密钥，以通过etcdctl连接到服务器。
+
+ca证书：/opt/KUIN00601/ca.crt
+客户端证书：/opt/KUIN00601/etcd-client.crt
+客户端密钥：/opt/KUIN00601/etcd-client.key
+一定要把这参数用熟练，如果考试时有问题，不要急，多试试！！！
+
+一旦正确配置了 etcd，只有具有有效证书的客户端才能访问它。要让 Kubernetes API 服务器访问，可以使用参数 --etcd-certfile=k8sclient.cert,–etcd-keyfile=k8sclient.key 和 --etcd-cafile=ca.cert 配置它。
+
+我记得我考试进用的是：–certfile=/opt/KUIN00601/etcd-client.crt --keyfile=/opt/KUIN00601/etcd-client.key --cafile=/opt/KUIN00601/ca.crt
+
+ETCDCTL_API=3 etcdctl --endpoint=https://127.0.0.1:2379 --certfile=/opt/KUIN00601/etcd-client.crt --keyfile=/opt/KUIN00601/etcd-client.key --cafile=/opt/KUIN00601/ca.crt snapshot save /data/backup/etcd-snapshot.db
+
+ETCDCTL_API=3 etcdctl --endpoint=https://127.0.0.1:2379 --cert-file=/opt/KUIN00601/etcd-client.crt --key-file=/opt/KUIN00601/etcd-client.key --ca-file=/opt/KUIN00601/ca.crt snapshot restore /var/data/etcd-snapshot-previous.db
+
+  
+ 
+05 Task - 英文
+Create a new NetworkPolicy named allow-port-from-namespace to allow Pods in the existing namespace internal to connect to port 8080 of other Pods in the same namespace.
+Ensure that the new NetworkPolicy:
+
+does not allow access to Pods not listening on port 8080.
+does not allow access from Pods not in namespace internal.
+#network.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-port-from-namespace
+  namespace: internal
+spec:
+  podSelector: matchLabels: {}
+  policyTypes:
+  - Ingress
+  ingress:
+  - from: - podSelector: {} ports: - protocol: TCP port: 8080
+#spec.podSelector限定了这个namespace里的pod可以访问
+kubectl create -f network.yaml
+
+  
+ 
+06 Task - 英文
+Reconfigure the existing deployment front-end and add a port specifiction named http exposing port 80/tcp of the existing container nginx.
+
+Create a new service named front-end-svc exposing the container prot http.
+
+Configure the new service to also expose the individual Pods via a NodePort on the nodes on which they are scheduled.
+
+kubectl get deploy front-end
+kubectl edit deploy front-end -o yaml
+#port specification named http
+#service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-end-svc
+  labels: app: nginx
+spec:
+  ports:
+  - port: 80 protocol: tcp name: http
+  selector: app: nginx
+  type: NodePort  
+#
+kubectl create -f service.yaml
+#
+kubectl get svc
+
+#或者一条命令搞定,注意会遗漏port specification named http
+kubectl expose deployment front-end --name=front-end-svc --port=80 --tarport=80 --type=NodePort
+
+  
+ 
+07 Task - 英文
+Create a new nginx Ingress resource as follows:
+
+Name: ping
+Namespace: ing-internal
+Exposing service hi on path /hi using service port 5678
+The avaliability of service hi can be checked using the following command,which should return hi:
+curl -kL /hi
+
+vi ingress.yaml
+#
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ping
+  namespace: ing-internal
+spec:
+  rules:
+  - http: paths: - path: /hi pathType: Prefix backend: service: name: hi port: number: 5678
+# 
+kubectl create -f ingress.yaml
+
+  
+ 
+08 Task - 英文
+Scale the deployment presentation to 3 pods.
+
+kubectl get deployment
+kubectl scale deployment.apps/presentation --replicas=3
+
+  
+ 
+09 Task - 英文
+Task
+
+Schedule a pod as follows:
+
+name: nginx-kusc00401
+Image: nginx
+Node selector: disk-spinning
+#yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-kusc00401
+spec:
+  containers:
+  - name: nginx image: nginx imagePullPolicy: IfNotPresent
+  nodeSelector: disk: spinning
+# 
+kubectl create -f node-select.yaml 
+
+  
+ 
+10 Task - 英文
+Task
+Check to see how many nodes are ready (not including nodes tainted NoSchedule)and write the number to /opt/KUSC00402/kusc00402.txt.
+
+kubectl describe nodes | grep ready|wc -l
+kubectl describe nodes | grep -i taint | grep -i noschedule |wc -l
+echo 3 > /opt/KUSC00402/kusc00402.txt
+
+# 查询集群Ready节点数量
+kubectl get node | grep -i ready |wc -l
+# 找出节点taints、noSchedule
+kubectl describe nodes | grep -i taints | grep -i noschedule |wc -l
+#将得到的减数，写入到文件
+echo 2 > /opt/KUSC00402/kusc00402.txt
+
+  
+ 
+11 Task - 英文
+Create a pod named kucc8 with a single app container for each of the following images running inside (there may be between 1 and 4 images specified):
+nginx + redis + memcached + consul .
+
+kubectl run kucc8 --image=nginx --dry-run -o yaml > kucc8.yaml
+# vi kucc8.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  name: kucc8
+spec:
+  containers:
+  - image: nginx name: nginx
+  - image: redis name: redis
+  - image: memcached name: memcached
+  - image: consul name: consul
+# 
+kubectl create -f kucc8.yaml
+#12.07
+
+  
+ 
+12 Task - 英文
+Task
+Create a persistent volume whit name app-config, of capacity 1Gi and access mode ReadOnlyMany . the type of volume is hostPath and its location is /srv/app-config .
+
+#vi pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: app-config
+spec:
+  capacity: storage: 1Gi
+  accessModes: - ReadOnlyMany
+  hostPath: path: /srv/app-config
+#
+kubectl create -f pv.yaml
+
+  
+ 
+13 Task - 英文
+Task
+Create a new PersistentVolumeClaim:
+
+Name: pv-volume
+Class: csi-hostpath-sc
+Capacity: 10Mi
+Create a new Pod which mounts the PersistentVolumeClaim as a volume:
+
+Name: web-server
+Image: nginx
+Mount path: /usr/share/nginx/html
+Configure the new Pod to have ReadWriteOnce access on the volume.
+
+Finally,using kubectl edit or Kubectl patch expand the PersistentVolumeClaim to a capacity of 70Mi and record that change.
+
+vi pvc.yaml
+#使用指定storageclass创建一个pvc
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pv-volume
+spec:
+  accessModes: - ReadWriteOnce
+  volumeMode: Filesystem resources: requests: storage: 10Mi
+  storageClassName: csi-hostpath-sc
+
+# vi pod-pvc.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-server
+spec:
+  containers: - name: web-server image: nginx volumeMounts: - mountPath: "/usr/share/nginx/html" name: my-volume
+  volumes: - name: my-volume persistentVolumeClaim: claimName: pv-volume
+# craete 
+kubectl create -f pod-pvc.yaml
+#edit 修改容量
+kubectl edit pvc pv-volume --record
+
+  
+ 
+14 Task - 英文
+Task
+Monitor the logs of pod bar and:
+
+Extract log lines corresponding to error unable-to-access-website
+Write them to /opt/KUTR00101/bar
+kubectl logs bar | grep 'unable-to-access-website' > /opt/KUTR00101/bar
+cat /opt/KUTR00101/bar
+
+  
+ 
+15 Task - 英文
+Context
+Without changing its existing containers,an existing Pod needs to be integrated into Kubernetes’s build-in logging architecture (e.g. kubectl logs). Adding a streaming sidecar container is a good and common way to accomplish this requirement.
+
+Task
+Add a busybox sidecar container to the existing Pod big-corp-app. The new sidecar container has to run the following command:
+
+/bin/sh -c tail -n+1 -f /var/log/big-corp-app.log
+
+  
+ 
+Use a volume mount named logs to make the file /var/log/big-corp-app.log available to the sidecar container.
+
+Don’t modify the existing container.
+Don’t modify the path of the log file,both containers must access it at /var/log/big-corp-app.log.
+
+#
+kubectl get pod big-corp-app -o yaml 
+#
+apiVersion: v1
+kind: Pod
+metadata:
+  name: big-corp-app
+spec:
+  containers:
+  - name: big-corp-app image: busybox args: - /bin/sh - -c - > i=0; while true; do echo "$(date) INFO $i" >> /var/log/big-corp-app.log; i=$((i+1)); sleep 1; done volumeMounts: - name: logs mountPath: /var/log
+  - name: count-log-1 image: busybox args: [/bin/sh, -c, 'tail -n+1 -f /var/log/big-corp-app.log'] volumeMounts: - name: logs mountPath: /var/log
+  volumes:
+  - name: logs emptyDir: {}
+
+#验证：
+kubectl logs big-corp-app -c count-log-1
+
+  
+ 
+16 Task - 英文
+Form the pod label name-cpu-loader,find pods running high CPU workloads and write the name of the pod consuming most CPU to the file /opt/KUTR00401/KURT00401.txt(which alredy exists).
+
+查看Pod标签为name=cpu-user-loader 的CPU使用率并且把cpu使用率最高的pod名称写入/opt/KUTR00401/KUTR00401.txt文件里
+
+kubectl top pods -l name=name-cpu-loader --sort-by=cpu
+echo '排名第一的pod名称' >>/opt/KUTR00401/KUTR00401.txt
+
+  
+ 
+17 Task - 英文
+Task
+A Kubernetes worker node,named wk8s-node-0 is in state NotReady .
+Investigate why this is the case,and perform any appropriate steps to bring the node to a Ready state,ensuring that any changes are made permanent.
+
+Yon can ssh to teh failed node using:
+
+ssh wk8s-node-o
+
+   
+  
+You can assume elevated privileges on the node with the following command:
+
+sudo -i
+
+   
+  
+#名为wk8s-node-1 的节点处于NotReady状态，将其恢复成Ready状态，并且设置为开机自启
+# 连接到NotReady节点
+ssh wk8s-node-0
+#获取权限
+sudo -i
+# 查看服务是否运行正常
+systemctl status kubelet 
+#如果服务非正常运行进行恢复
+systemctl start kubelet
+#设置开机自启
+systemctl enable kubelet 
+
+  
+ 
+文章来源: blog.csdn.net，作者：[shenhonglei]，版权归原作者所有，如需转载，请联系作者。
