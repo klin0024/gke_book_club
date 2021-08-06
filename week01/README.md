@@ -190,7 +190,6 @@ docker rm $(docker ps -q)
 
 - Docker Hub: https://hub.docker.com/
 - Quay: https://quay.io/
-- GCR: https://cloud.google.com/container-registry
 
 ##### 私有倉庫
 
@@ -236,17 +235,50 @@ Docker 將身份驗證設置保存在配置文件 config.json 中
 
 - credHelpers
 
-如果您使用 Docker 憑據幫助程序進行身份驗證，Container Registry 會將憑據幫助程序設置存儲credHelpers在文件的 部分中
+如果您使用 Docker 憑據幫助程序進行身份驗證，Container Registry 會將憑據幫助程序設置在credHelpers的部分
+
+```
+}
+  "credHelpers": {
+    "gcr.io": "gcloud",
+    "us.gcr.io": "gcloud",
+    "eu.gcr.io": "gcloud",
+    "asia.gcr.io": "gcloud",
+    "staging-k8s.gcr.io": "gcloud",
+    "marketplace.gcr.io": "gcloud"
+  }
+}
+```
 
 - auths
 
-如果您使用 Docker 使用令牌或服務帳戶密鑰作為密碼登錄，Docker 會auths在文件的部分中存儲您的憑據的 base64 編碼版本 
+如果您使用 Docker 使用令牌或服務帳戶密鑰作為密碼登錄，Docker 會在auths的部分中存儲base64 編碼的憑據
+
+```
+{
+  "auths": {
+    "harbor.example.com": {
+      "auth": "YWRtaW46SGFyYm9yMTIzNDU="
+    }
+}    
+```
 
 - credStore
 
-如果您配置了 憑證存儲 來管理憑證，則憑證存儲的設置credStore位於文件的部分中
+如果您配置了 憑證存儲 來管理憑證，則憑證存儲會設置credStore的部分
 
-##### 推送私有倉庫
+```
+{
+  "credsStore": "gcloud"
+}
+```
+
+```
+echo "https://gcr.io" | docker-credential-gcloud get
+```
+
+
+##### 推送鏡像到私有倉庫
 
 - Harbor
 - Artifact Registry
