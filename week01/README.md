@@ -45,6 +45,8 @@ Server: Docker Engine - Community
 
 ### 映像檔
 
+![Docker IMAGE](images/01.png)
+
 - Pull an image or a repository from a registry
 
 ```
