@@ -5,7 +5,7 @@
 1 |8/11	|docker 基礎1 |了解docker運作原理,及基礎操作 |https://philipzheng.gitbook.io/docker_practice/
 2 |8/18	|docker 基礎2 | |	
 3 |8/25	|docker 故障排除	|嘗試修復docker錯誤,並完成課題 |https://ithelp.ithome.com.tw/articles/10257226
-4 |9/1	|container 進階 |container 進階工具介紹及使用	|
+4 |9/1	|container 進階 |container 進階工具介紹及使用	| Podman/Skopeo/Buildah/Docker Compose
 5 |9/9	|kubrenetes 基礎1 |了解kubrenetes運作原理,及基礎操作 |https://kubernetes.io/docs/home/
 6 |9/15	|kubrenetes 基礎2 |	|https://jimmysong.io/kubernetes-handbook/
 7 |9/22	|kubrenetes 安裝	 |使用kubeadm安裝kubernetes	|https://medium.com/platformer-blog/building-a-kubernetes-1-20-cluster-with-kubeadm-4b745eb5c697

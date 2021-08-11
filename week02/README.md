@@ -2,47 +2,66 @@
 
 ### 資料管理
 
+- Create a volume
+
 ```
 docker volume create
 ```
+
+- List volumes
 
 ```
 docker volume ls
 ```
 
+- Display detailed information on one or more volumes
+
 ```
 docker volume inspect
 ```
+
+- Remove one or more volumes
 
 ```
 docker volume rm
 ```
 
-##### 
+##### 掛載標記
 
-如果你使用selinux你可以添加z或Z選項來修改被掛載到容器中的主機文件或目錄的 selinux 標籤
 z: 綁定掛載內容在多個容器之間共享
 Z: 綁定掛載內容是私有的且未共享的
-ro:
-rw:
+ro: 掛載內容唯讀
+rw: 掛載內容可讀寫
+
+- example
 
 ### 網路管理
+
+- Create a network
 
 ```
 docker network create
 ```
 
+- List networks
+
 ```
 docker network ls
 ```
+
+- Display detailed information on one or more networks
 
 ```
 docker network inspect
 ```
 
+- Remove one or more networks
+
 ```
 docker network rm
 ```
+
+- List port mappings or a specific mapping for the container
 
 ```
 docker port
@@ -50,18 +69,37 @@ docker port
 
 ### 進階管理
 
+- Display a live stream of container(s) resource usage statistics
+
 ```
 docker stats
 ```
+
+- Display the running processes of a container
 
 ```
 docker top
 ```
 
+- Show docker disk usage
+
 ```
-docker system
+docker system df
 ```
-##### Restart policies
+
+- Get real time events from the server
+
+```
+docker system events
+```
+
+- Display system-wide information
+
+```
+docker system info
+```
+
+##### 重啟策略
 
 Policy	|Result
 :---|:---
@@ -70,20 +108,22 @@ on-failure[:max-retries]	|僅當容器以非零退出狀態退出時才重新啟
 always	|無論退出狀態如何，始終重新啟動容器。當您指定 always 時，Docker 守護進程將嘗試無限期地重新啟動容器。無論容器的當前狀態如何，容器也將始終在守護程序啟動時啟動。
 unless-stopped	|無論退出狀態如何，始終重啟容器，包括守護進程啟動時，除非容器在 Docker 守護進程停止之前進入停止狀態
 
+- example
+
 
 ##### 命名空間
 
-pid 命名空間
+- pid 命名空間
 
-net 命名空間
+- net 命名空間
 
-ipc 命名空間
+- ipc 命名空間
 
-mnt 命名空間
+- mnt 命名空間
 
-uts 命名空間
+- uts 命名空間
 
-user 命名空間
+- user 命名空間
 
 --net=host
 --pid=host
@@ -91,7 +131,7 @@ user 命名空間
 --uts=host
 --userns=host
 
-##### Prune
+##### 刪除未使用的物件
 
 ```
 docker image prune
@@ -136,6 +176,10 @@ WORKDIR: 後續的 RUN、CMD、ENTRYPOINT 指令指定工作目錄
 CMD:  指定啟動容器時執行的命令
 ENTRYPOINT: 指定容器啟動後執行的命令，並且不會被 docker run 提供的參數覆蓋
 
+[Example](Dockerfile)
+
+
+- Build an image from a Dockerfile
 
 ```
 docker build -t
