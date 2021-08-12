@@ -196,21 +196,31 @@ docker run --userns=host
 
 ##### 刪除未使用的物件
 
+- Remove unused images
+
 ```
 docker image prune
 ```
+
+- Remove all stopped containers
 
 ```
 docker container prune
 ```
 
+- Remove all unused local volumes
+
 ```
 docker volume prune
 ```
 
+- Remove all unused networks
+
 ```
 docker network prune
 ```
+
+- Remove unused data
 
 ```
 docker system prune

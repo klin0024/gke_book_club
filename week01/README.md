@@ -287,3 +287,7 @@ echo "https://gcr.io" | docker-credential-gcloud get
 
 - Harbor
 - Artifact Registry
+
+### 附錄
+
+![op](images/03.png)
