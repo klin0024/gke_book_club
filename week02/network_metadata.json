@@ -1,0 +1,30 @@
+[
+    {
+        "Name": "net",
+        "Id": "f9f0a1f36b11ebf8ddeb99bb737d0ca90ebc1e3a00df1ffe6b287bd647bd40f1",
+        "Created": "2021-08-12T05:16:22.761972667Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {}
+    }
+]

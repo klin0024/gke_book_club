@@ -133,6 +133,7 @@ docker ps -a
 ```
 docker inspect
 ```
+[example](container_metadata.json)
 
 - Fetch the logs of a container
 
