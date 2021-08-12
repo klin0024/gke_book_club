@@ -36,10 +36,12 @@ docker run -d -v volume:/usr/share/nginx/html
 
 ##### 掛載標記
 
-z: 綁定掛載內容在多個容器之間共享
-Z: 綁定掛載內容是私有的且未共享的
-ro: 掛載內容唯讀
-rw: 掛載內容可讀寫
+標記 | 說明
+:---|:---
+z| 貼上SELinux標籤,綁定掛載內容在多個容器之間共享
+Z| 貼上SELinux標籤,綁定掛載內容是私有的且未共享的
+ro| 掛載內容唯讀
+rw| 掛載內容可讀寫
 
 - example
 
@@ -237,7 +239,7 @@ WORKDIR: 後續的 RUN、CMD、ENTRYPOINT 指令指定工作目錄
 CMD:  指定啟動容器時執行的命令
 ENTRYPOINT: 指定容器啟動後執行的命令，並且不會被 docker run 提供的參數覆蓋
 
-[Example](Dockerfile)
+[example](Dockerfile)
 
 
 - Build an image from a Dockerfile
