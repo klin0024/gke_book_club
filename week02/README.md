@@ -218,26 +218,21 @@ docker system prune
 
 ### Dockerfile
 
-FROM: 使用的基礎鏡像
-
-MAINTAINER: 維護者訊息
-
-ENV: 環境變數
-
-RUN: 鏡像檔基底上執行指定命令
-
-複製本地端的檔案到容器中
-ADD: 可以是一個 URL；還可以是一個 tar 檔案（其複製後會自動解壓縮）
-COPY: 複製一個目錄或一個檔案
-
-
-EXPOSE: 容器對外的Port
-VOLUME: 從本地端或其他容器掛載的掛載點
-USER: 運行容器時的使用者名稱或 UID，後續的 RUN 也會使用指定使用者
-WORKDIR: 後續的 RUN、CMD、ENTRYPOINT 指令指定工作目錄
-
-CMD:  指定啟動容器時執行的命令
-ENTRYPOINT: 指定容器啟動後執行的命令，並且不會被 docker run 提供的參數覆蓋
+指令 |說明
+:---|:---
+FROM| 使用的基礎鏡像
+MAINTAINER| 維護者訊息
+ENV| 環境變數
+RUN| 鏡像檔基底上執行指定命令
+2+|複製本地端的檔案到容器中
+ADD| 可以是一個 URL；還可以是一個 tar 檔案（其複製後會自動解壓縮）
+COPY| 複製一個目錄或一個檔案
+EXPOSE| 容器對外的Port
+VOLUME| 從本地端或其他容器掛載的掛載點
+USER| 運行容器時的使用者名稱或 UID，後續的 RUN 也會使用指定使用者
+WORKDIR| 後續的 RUN、CMD、ENTRYPOINT 指令指定工作目錄
+CMD|  指定啟動容器時執行的命令
+ENTRYPOINT| 指定容器啟動後執行的命令，並且不會被 docker run 提供的參數覆蓋
 
 [example](Dockerfile)
 
