@@ -13,7 +13,7 @@
 - Podman 可以管理和運行任何符合 OCI（Open Container Initiative）規範的容器和容器鏡像。 Podman 提供了一個與 Docker 兼容的命令行前端來管理 Docker 鏡像。
 
 
-aaa|Docker |Podman
+ |Docker |Podman
 :---|:---|:---
 架構 |Client/Server |Fork/Exec
 運行程序 |root 運行 |root/非root 運行
