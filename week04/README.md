@@ -12,8 +12,7 @@
 - Podman 是一個開源的容器運行時項目，可在大多數 Linux 平台上使用。 Podman 提供與 Docker 非常相似的功能。正如前面提到的那樣，它不需要在你的系統上運行任何守護進程，並且它也可以在沒有 root 權限的情況下運行。
 - Podman 可以管理和運行任何符合 OCI（Open Container Initiative）規範的容器和容器鏡像。 Podman 提供了一個與 Docker 兼容的命令行前端來管理 Docker 鏡像。
 
-
- |Docker |Podman
+比較 |Docker |Podman
 :---|:---|:---
 架構 |Client/Server |Fork/Exec
 運行程序 |root 運行 |root/非root 運行
