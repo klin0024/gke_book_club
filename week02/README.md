@@ -172,7 +172,7 @@ docker run --ipc=host
 
 - mnt 命名空間
 
-mnt 命名空間允許不同命名空間的程式看到的檔案結構不同，這樣每個命名空間 中的程式所看到的檔案目錄就被隔離開了。同 chroot 不同，每個命名空間中的容器在 /proc/mounts 的訊息只包含所在命名空間的 mount point。
+mnt 命名空間允許不同命名空間的程式看到的檔案結構不同，這樣每個命名空間 中的程式所看到的檔案目錄就被隔離開了。每個命名空間中的容器在 /proc/mounts 的訊息只包含所在命名空間的 mount point。
 
 - uts 命名空間
 
@@ -188,10 +188,14 @@ docker run --uts=host
 
 每個容器可以有不同的使用者和組 id, 也就是說可以在容器內用容器內部的使用者執行程式而非主機上的使用者。
 
-使用宿主主機uts 命名空間
+使用宿主主機user 命名空間
 
 ```
 docker run --userns=host
+```
+
+```
+docker run --privileged
 ```
 
 ##### 刪除未使用的物件
@@ -234,7 +238,6 @@ FROM| 使用的基礎鏡像
 MAINTAINER| 維護者訊息
 ENV| 環境變數
 RUN| 鏡像檔基底上執行指定命令
-複製本地端的檔案到容器中
 ADD| 可以是一個 URL；還可以是一個 tar 檔案（其複製後會自動解壓縮）
 COPY| 複製一個目錄或一個檔案
 EXPOSE| 容器對外的Port
@@ -252,3 +255,22 @@ ENTRYPOINT| 指定容器啟動後執行的命令，並且不會被 docker run �
 ```
 docker build -t
 ```
+
+### Base Image
+
+##### Google
+
+Google-provided: https://cloud.google.com/artifact-management/docs/managed-base-images#google-provided_base_images
+cloud-build-samples: https://github.com/GoogleCloudPlatform/cloud-build-samples
+
+##### RedHat
+
+Universal: https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image
+Explore: https://catalog.redhat.com/software/containers/explore
+
+##### Open Source
+
+python: https://github.com/docker-library/python
+golang: https://github.com/docker-library/golang
+terraform: https://github.com/hashicorp/terraform/
+ansible: https://github.com/ansible/ansible-docker-base
