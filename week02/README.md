@@ -261,16 +261,21 @@ docker build -t
 ##### Google
 
 Google-provided: https://cloud.google.com/artifact-management/docs/managed-base-images#google-provided_base_images
+
 cloud-build-samples: https://github.com/GoogleCloudPlatform/cloud-build-samples
 
 ##### RedHat
 
 Universal: https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image
+
 Explore: https://catalog.redhat.com/software/containers/explore
 
 ##### Open Source
 
 python: https://github.com/docker-library/python
+
 golang: https://github.com/docker-library/golang
+
 terraform: https://github.com/hashicorp/terraform/
+
 ansible: https://github.com/ansible/ansible-docker-base
