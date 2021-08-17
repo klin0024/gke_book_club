@@ -266,7 +266,7 @@ cloud-build-samples: https://github.com/GoogleCloudPlatform/cloud-build-samples
 
 ##### RedHat
 
-Universal: https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image
+introducing: https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image
 
 RedHat-provided: https://catalog.redhat.com/software/containers/explore
 
