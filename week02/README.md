@@ -247,7 +247,7 @@ WORKDIR| 後續的 RUN、CMD、ENTRYPOINT 指令指定工作目錄
 CMD|  指定啟動容器時執行的命令
 ENTRYPOINT| 指定容器啟動後執行的命令，並且不會被 docker run 提供的參數覆蓋
 
-[example](Dockerfile)
+[example](https://github.com/klin0024/uploader/blob/main/docker/Dockerfile)
 
 
 - Build an image from a Dockerfile
@@ -268,7 +268,7 @@ cloud-build-samples: https://github.com/GoogleCloudPlatform/cloud-build-samples
 
 Universal: https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image
 
-Explore: https://catalog.redhat.com/software/containers/explore
+RedHat-provided: https://catalog.redhat.com/software/containers/explore
 
 ##### Open Source
 

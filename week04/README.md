@@ -32,7 +32,7 @@ OCI |符合 OCI 標準 |符合 OCI 標準
 
 ### docker-compose
 
-Compose 是一個用於定義和運行多容器 Docker 應用程序的工具。借助 Compose，您可以使用 YAML 文件來配置應用程序的服務。然後，使用單個命令，從配置中創建並啟動所有服務
+Compose 是一個用於定義和運行多個 Docker 容器應用程序的工具。借助 Compose，您可以使用 YAML 文件來配置應用程序的服務。然後，使用單個命令，從配置中創建並啟動所有服務
 
 使用 Compose 基本上是一個三步過程：
 
@@ -42,12 +42,38 @@ Compose 是一個用於定義和運行多容器 Docker 應用程序的工具。�
 
 - 運行 Docker compose 命令啟動並運行你的整個應用程序
 
+- Docker Compose samples: https://github.com/docker/awesome-compose
+
 [docker-compose.yml](docker-compose.yml)
+
+##### Install Docker Compose
+
+- Document: https://docs.docker.com/compose/install/#install-compose
+
+- Run this command to download the current stable release of Docker Compose:
+
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+- Apply executable permissions to the binary:
+
+```
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+- Test the installation
+
+```
+docker-compose --version
+```
 
 ##### example
 
 https://github.com/klin0024/uploader
 
-### podman-docker
+### Using Podman and Docker Compose
 
-https://jimmysong.io/kubernetes-handbook/
+- instruction: https://www.redhat.com/sysadmin/podman-docker-compose
+
+- podman-docker: 使用 podman 模擬 Docker CLI，讓 Docker compose 可以藉由 podman-docker 介面，運行多的 Podman 容器
