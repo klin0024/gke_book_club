@@ -80,7 +80,7 @@ docker network rm
 - example
 
 ```
-docker run -d -net=net
+docker run -d --net=net
 ```
 
 - List port mappings or a specific mapping for the container
