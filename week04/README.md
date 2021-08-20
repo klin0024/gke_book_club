@@ -112,7 +112,7 @@ key |value |1 |2
 :---|:---|:---|:---
 version | | |
 services | | |
- |service| |
+ |service| | 1
  | |container_name |
  | |hostname |
  | |image |
