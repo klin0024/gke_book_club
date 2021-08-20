@@ -49,3 +49,7 @@ http://\<ip\>
 - 10% 按鈕敘述：「Solve It Now」轉變成「Solved」
 - 40% 呈現背景圖片
 - 10% 按鈕敘述：ACHIEVED BY [放上自己名字]
+
+### 成功畫面
+
+![success](images/02.JPG)

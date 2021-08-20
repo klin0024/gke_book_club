@@ -14,19 +14,53 @@
 
 比較 |Docker |Podman
 :---|:---|:---
+來源 |OpenSource | RedHat ISO  
 架構 |Client/Server |Fork/Exec
 運行程序 |root 運行 |root/非root 運行
 OCI |符合 OCI 標準 |符合 OCI 標準
 
+##### Podman Installation
+
+```
+dnf install podman -y
+```
+
+##### Podman Command
+
+https://www.mankier.com/1/podman#Commands
+
 ### skopeo
 
 - Skopeo 是一個鏡像管理工具，允許我們通過 Push、Pull和復製鏡像來處理 Docker 和符合 OCI 規範的鏡像。
+
+##### Skopeo Installation
+
+```
+dnf install skopeo -y
+```
+
+##### Skopeo Command
+
+https://www.mankier.com/1/skopeo#Commands
 
 ### buildah
 
 - 雖然 Podman 也可以支持用戶構建 Docker 鏡像，但是構建速度比較慢。並且默認情況下使用 VFS 存儲驅動程序會消耗大量磁盤空間。
 - Buildah 是一個專注於構建 OCI 容器鏡像的工具，Buildah 構建速度非常快並使用覆蓋存儲驅動程序，可以節約大量的空間。
 - Buildah 基於 fork-exec 模型，不以守護進程運行。 Buildah 支持 Dockerfile 中的所有命令。你可以直接使用 Dockerfiles 來構建鏡像，並且不需要任何 root 權限。 Buildah 也支持用自己的語法文件構建鏡像，可以允許將其他腳本語言集成到構建過程中。
+
+
+##### Buildah Installation
+
+```
+dnf install buildah -y
+```
+
+##### Buildah Command
+
+https://www.mankier.com/1/buildah#Commands
+
+### Docker vs Podman
 
 ![Docker vs Podman](images/02.png)
 
