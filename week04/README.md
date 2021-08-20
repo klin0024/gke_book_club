@@ -108,29 +108,29 @@ docker-compose --version
 
 ##### Docker Compose file
 
-key | value | |
+key |value | |
 :---|:---|:---|:---
 version | | |
 services | | |
-|service| |
-| |container_name |
-| |hostname |
-| |image |
-| |entrypoint |
-| |command |
-| |ports |
-| |network_mode |
-| |extra_hosts |
-| |dns |
-| |dns_search |
-| |volumes |
-| |sysctls |
-| |restart |
-| |depends_on |
+ |service| |
+ | |container_name |
+ | |hostname |
+ | |image |
+ | |entrypoint |
+ | |command |
+ | |ports |
+ | |network_mode |
+ | |extra_hosts |
+ | |dns |
+ | |dns_search |
+ | |volumes |
+ | |sysctls |
+ | |restart |
+ | |depends_on |
 volumes | | |
-|vol |{} |
+ |vol |{} |
 networks |
-|net |{} | 
+ |net |{} | 
 
 ##### example
 
