@@ -112,25 +112,25 @@ key |value |1 |2
 :---|:---|:---|:---
 version | | |
 services | | |
-| |service| | 1
- | |container_name |
- | |hostname |
- | |image |
- | |entrypoint |
- | |command |
- | |ports |
- | |network_mode |
- | |extra_hosts |
- | |dns |
- | |dns_search |
- | |volumes |
- | |sysctls |
- | |restart |
- | |depends_on |
+| |service| | 
+| | |container_name |
+| | |hostname |
+| | |image |
+| | |entrypoint |
+| | |command |
+| | |ports |
+| | |network_mode |
+| | |extra_hosts |
+| | |dns |
+| | |dns_search |
+| | |volumes |
+| | |sysctls |
+| | |restart |
+| | |depends_on |
 volumes | | |
- |vol |{} |
+| |vol |{} |
 networks |
- |net |{} | 
+| |net |{} | 
 
 ##### example
 
