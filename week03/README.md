@@ -52,4 +52,4 @@ http://\<ip\>
 
 ### 成功畫面
 
-![success](images/02.JPG)
+![success](images/02.jpg)
