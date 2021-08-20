@@ -108,10 +108,10 @@ docker-compose --version
 
 ##### Docker Compose file
 
-key | value |
-:---|:---|:---
-version |
-services |
+key | value | |
+:---|:---|:---|:---
+version | | |
+services | | |
 |service| |
 | |container_name |
 | |hostname |
@@ -127,7 +127,7 @@ services |
 | |sysctls |
 | |restart |
 | |depends_on |
-volumes |
+volumes | | |
 |vol |{} |
 networks |
 |net |{} | 
