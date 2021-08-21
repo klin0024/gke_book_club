@@ -108,29 +108,29 @@ docker-compose --version
 
 ##### Docker Compose file
 
-schema |key | | value |type |description
+schema |key | |type |value |description
 :---|:---|:---|:---|:---|:---
-version | | |
-services | | |
-| |service| | 
-| | |container_name |
-| | |hostname |
-| | |image |
-| | |entrypoint |
-| | |command |
-| | |ports |
-| | |network_mode |
-| | |extra_hosts |
-| | |dns |
-| | |dns_search |
-| | |volumes |
-| | |sysctls |
-| | |restart |
-| | |depends_on |
+version | | | |
+services | | | |
+| |nginx | |string | |service name 
+| | |container_name |string |nginx |container name
+| | |hostname |string |nginx |hostname
+| | |image |string |docker.io/nginx:latest |image repo
+| | |entrypoint |list |[] |entrypoint
+| | |command |list |[] |command
+| | |ports |list |['80:80'] |add port mappings
+| | |network_mode |string |host |network mode
+| | |extra_hosts |list |['database:162.242.195.82'] |add hostname mappings
+| | |dns |string or list |8.8.8.8 |add dns server
+| | |dns_search |string or list |example.com |add search domain
+| | |volumes |list |['vol:/usr/share/nginx/html','./nginx.conf/etc/nginx/nginx.conf'] |add volume mappings
+| | |sysctls |list | |kernel parameters
+| | |restart |string |always |restart policy
+| | |depends_on |list |['memcache ']|dependency between services
 volumes | | |
-| |vol |{} |
+| |vol | |string | |volume name 
 networks |
-| |net |{} | 
+| |net | |string | |network name
 
 ##### example
 
