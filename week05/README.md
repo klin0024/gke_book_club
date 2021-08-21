@@ -3,7 +3,7 @@
 
 ### Kubernetes Architecture
 
-
+![topology](images/topology.png)
 
 ### Kubernetes Component
 
@@ -93,8 +93,24 @@ Extension |CustomResourceDefinitions
 
 [Answer](YAML/exam06-answer.yml)
 
+### NameSpace
+
+- NameSpace是一種邏輯空間，每個NameSpace在邏輯上彼此分開，但具有相互通信的能力
+
+- NameSpace適用於區隔團隊或專案的資源
+
+- NameSpace不能相互嵌套，每個Kubernetes 資源只能在一個NameSpace中
+
 
 ### POD
+
+- Pod是可以在Kubernetes中創建和管理的、最小的可部署單位
+
+- Pod 是一組（一個或多個） 容器
+
+- Pod 裡容器共享存儲、網路、以及怎樣運行這些容器的聲明，Pod 中的容器是並置的並且一同調度
+
+- Pod 是特定於應用的“邏輯主機”，其中包含一個或多個應用容器， 這些容器是緊密耦合在一起的。類似於在同一邏輯主機上運行的應用程序
 
 ###### 測驗
 
@@ -153,6 +169,8 @@ Extension |CustomResourceDefinitions
 
 ### ReplicaSet
 
+RepicaSet 是通過一組字段來定義的，包括一個用來識別可獲得的 Pod 的集合的選擇算符、一個用來標明應該維護的副本個數的數值、一個用來指定應該創建新 Pod 以滿足副本個數條件時要使用的 Pod 模板等等。每個 ReplicaSet 都通過根據需要創建和 刪除 Pod 以使得副本個數達到期望值， 進而實現其存在價值。當 ReplicaSet 需要創建新的 Pod 時，會使用所提供的 Pod 模板。
+
 ###### 測驗
 
 ![exam01](ReplicaSet/exam01.JPG)
@@ -197,6 +215,16 @@ Extension |CustomResourceDefinitions
 
 
 ### Deployment
+
+- Deployment為聲明Pod的複製數量
+
+- Deployment負責新增，修改，刪除，Pod的內容及數量，也支援回滾到任一版本
+
+- Deployment也會自動替換任何失敗或無響應的Pod
+確保您的應用程序會保持一個或多個可用的服務，滿足用戶的請求
+
+- Deployment -> ReplicaSet -> Pod
+
 
 ###### 測驗
 
