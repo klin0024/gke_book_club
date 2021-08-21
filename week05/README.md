@@ -5,9 +5,15 @@
 
 ###### 測驗
 
-- ![exam01](YAML/exam01.JPG)
+![exam01](YAML/exam01.JPG)
 
 [Answer](YAML/exam01-answer.yml)
+
+---
+
+![exam02](YAML/exam02.JPG)
+
+[Answer](YAML/exam02-answer.yml)
 
 ### POD
 
