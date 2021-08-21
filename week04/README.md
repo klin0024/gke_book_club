@@ -108,30 +108,30 @@ docker-compose --version
 
 ##### Docker Compose file
 
-schema |key | |type |value |description
+schema |key |parameter |type |value |description
 :---|:---|:---|:---|:---|:---
 version | | | |
 services | | | |
-| |nginx | |string | |service name 
+| |nginx | | | |service name 
 | | |container_name |string |nginx |container name
 | | |hostname |string |nginx |hostname
 | | |image |string |docker.io/nginx:latest |image repo
-| | |entrypoint |list |["/docker-entrypoint.sh"] |entrypoint
-| | |command |list |['nginx-debug', '-g', 'daemon off;'] |command
-| | |environment |list or dict |['NGINX_PORT=80'] |add environment variables
-| | |ports |list |['80:80'] |add port mappings
+| | |entrypoint |list |[ '/docker-entrypoint.sh' ] |entrypoint
+| | |command |list |[ 'nginx-debug',\n '-g',\n 'daemon off;' ] |command
+| | |environment |list or dict |[ 'NGINX_PORT=80' ] |add environment variables
+| | |ports |list |[ '80:80' ] |add port mappings
 | | |network_mode |string |host |network mode
-| | |extra_hosts |list |['database:162.242.195.82'] |add hostname mappings
+| | |extra_hosts |list |[ 'database:162.242.195.82' ] |add hostname mappings
 | | |dns |string or list |8.8.8.8 |add dns server
 | | |dns_search |string or list |example.com |add search domain
-| | |volumes |list |['vol:/usr/share/nginx/html','./nginx.conf/etc/nginx/nginx.conf'] |add volume mappings
-| | |sysctls |list or dict |['net.core.somaxconn=1024','net.ipv4.tcp_syncookies=0'] |kernel parameters
+| | |volumes |list |[ 'vol:/usr/share/nginx/html',\n './nginx.conf/etc/nginx/nginx.conf' ] |add volume mappings
+| | |sysctls |list or dict |[ 'net.core.somaxconn=1024',\n 'net.ipv4.tcp_syncookies=0' ] |kernel parameters
 | | |restart |string |always |restart policy
-| | |depends_on |list |['memcache']|dependency between services
+| | |depends_on |list |[ 'memcache' ]|dependency between services
 volumes | | |
-| |vol | |string | |volume name 
+| |vol | | | |volume name 
 networks |
-| |net | |string | |network name
+| |net | | | |network name
 
 ##### example
 
