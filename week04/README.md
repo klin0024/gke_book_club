@@ -1,4 +1,4 @@
-# Week 01 - container 進階
+# Week 04 - container 進階
 
 ### docker
 
@@ -29,7 +29,7 @@ dnf install podman -y
 
 ##### Podman Command
 
-https://www.mankier.com/1/podman#Commands
+- Document: https://www.mankier.com/1/podman#Commands
 
 ### skopeo
 
@@ -43,7 +43,7 @@ dnf install skopeo -y
 
 ##### Skopeo Command
 
-https://www.mankier.com/1/skopeo#Commands
+- Document: https://www.mankier.com/1/skopeo#Commands
 
 - Return low-level information about image
 
@@ -80,7 +80,7 @@ dnf install buildah -y
 
 ##### Buildah Command
 
-https://www.mankier.com/1/buildah#Commands
+- Document: https://www.mankier.com/1/buildah#Commands
 
 - Prints the low-level information
 
@@ -134,7 +134,7 @@ docker-compose --version
 
 schema |key |parameter |type |value |description
 :---|:---|:---|:---|:---|:---
-version | |string |"3.9" |docker compose file version
+version | | |string |"3.9" |docker compose file version
 services | | | |
 | |nginx | | | |service name 
 | | |container_name |string |nginx |container name
@@ -149,7 +149,7 @@ services | | | |
 | | |extra_hosts |list |[ "database:162.242.195.82" ] |add hostname mappings
 | | |dns |string or list |8.8.8.8 |add dns server
 | | |dns_search |string or list |example.com |add search domain
-| | |volumes |list |[ "vol:/usr/share/nginx/html",<dr> "./nginx.conf:/etc/nginx/nginx.conf" ] |add volume mappings
+| | |volumes |list |[ "vol:/usr/share/nginx/html",<dr> "./nginx.conf:/etc/nginx/nginx.conf:ro" ] |add volume mappings
 | | |sysctls |list or dict |[ "net.core.somaxconn=1024",<dr> "net.ipv4.tcp_syncookies=0" ] |kernel parameters
 | | |restart |string |always |restart policy
 | | |depends_on |list |[ "memcache" ]|dependency between services
