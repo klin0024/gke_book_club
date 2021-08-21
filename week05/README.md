@@ -7,7 +7,7 @@
 
 - exam01
 
-![exam01](YAML/exam01)
+![exam01](YAML/exam01.JPG)
 
 [Answer](YAML/exam01-answer.yml)
 
