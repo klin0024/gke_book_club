@@ -108,8 +108,8 @@ docker-compose --version
 
 ##### Docker Compose file
 
-schema |key |value |value |description
-:---|:---|:---|:---|:---
+schema |key | | value |type |description
+:---|:---|:---|:---|:---|:---
 version | | |
 services | | |
 | |service| | 
