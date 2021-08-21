@@ -45,6 +45,24 @@ dnf install skopeo -y
 
 https://www.mankier.com/1/skopeo#Commands
 
+- Return low-level information about image
+
+```
+skopeo inspect
+```
+
+- Copy an image
+
+```
+skopeo copy
+```
+
+- Synchronize images between container registries and local directories
+
+```
+skopeo sync
+```
+
 ### buildah
 
 - 雖然 Podman 也可以支持用戶構建 Docker 鏡像，但是構建速度比較慢。並且默認情況下使用 VFS 存儲驅動程序會消耗大量磁盤空間。
@@ -63,6 +81,12 @@ dnf install buildah -y
 ##### Buildah Command
 
 https://www.mankier.com/1/buildah#Commands
+
+- Prints the low-level information
+
+```
+buildah inspect
+```
 
 ### Docker vs Podman
 
@@ -110,7 +134,7 @@ docker-compose --version
 
 schema |key |parameter |type |value |description
 :---|:---|:---|:---|:---|:---
-version | | | |
+version | |string |"3.9" |docker compose file version
 services | | | |
 | |nginx | | | |service name 
 | | |container_name |string |nginx |container name
