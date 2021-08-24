@@ -53,7 +53,7 @@ http://\<ip\>
 
 ### 加分題
 
-- Dockerfile優化, 減少 Image Layer
+- Dockerfile優化：減少Image Layer
 
 ### 成功畫面
 
