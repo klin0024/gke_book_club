@@ -31,6 +31,66 @@ dnf install podman -y
 
 - Document: https://www.mankier.com/1/podman#Commands
 
+- Run a command in a new container
+
+```
+podman run
+```
+
+- Prints out information about containers
+
+```
+podman ps
+```
+
+- Display a container, image, volume, network, or pod's configuration
+
+```
+podman inspect
+```
+
+- Display the logs of one or more containers
+
+```
+podman logs
+```
+
+- Execute a command in a running container
+
+```
+podman exec
+```
+
+- Display a live stream of one or more container's resource usage statistics
+
+```
+podman start
+```
+
+- Stop one or more running containers
+
+```
+podman stop
+```
+
+- Restart one or more containers
+
+```
+podman restart
+```
+
+- Copy files/folders between a container and the local filesystem
+
+```
+podman cp
+```
+
+- Remove one or more containers
+
+```
+podman rm
+```
+
 ### skopeo
 
 - Skopeo 是一個鏡像管理工具，允許我們通過 Push、Pull和復製鏡像來處理 Docker 和符合 OCI 規範的鏡像。
@@ -82,11 +142,31 @@ dnf install buildah -y
 
 - Document: https://www.mankier.com/1/buildah#Commands
 
+- Build an image using instructions from Containerfiles or Dockerfiles 
+
+```
+buildah bud
+```
+
 - Prints the low-level information
 
 ```
 buildah inspect
 ```
+
+- Pull an image from a registry
+
+```
+buildah pull
+```
+
+- Push an image, manifest list or image index from local storage to elsewhere
+
+```
+buildah push
+```
+
+- Push an image, manifest list or image index from local storage to elsewhere
 
 ### Docker vs Podman
 
