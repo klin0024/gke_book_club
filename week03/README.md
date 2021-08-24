@@ -29,7 +29,7 @@ docker build -t mywebsite --no-cache .
 - 啟動 docker container
 
 ```
-docker run --rm -p 80:80 --name mywebsite mywebsite
+docker run --rm -d -p 80:80 --name mywebsite mywebsite
 ```
 
 - 查看首頁畫面
