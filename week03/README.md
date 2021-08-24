@@ -17,7 +17,7 @@ git clone https://github.com/uopsdod/docker-debug-initial.git
 
 ```
 cd docker-debug-initial
-wget https://github.com/uopsdod/docker-debug-initial-image/blob/main/docker_debug_cover.jpeg
+wget https://raw.githubusercontent.com/uopsdod/docker-debug-initial-image/main/docker_debug_cover.jpeg
 ```
 
 - 建立 dokcer image
@@ -51,6 +51,12 @@ http://\<ip\>
 - 40% 呈現背景圖片
 - 10% 按鈕敘述：ACHIEVED BY [放上自己名字]
 
+### 加分題
+
+- Dockerfile優化, 減少 Image Layer
+
 ### 成功畫面
 
 ![success](images/02.jpg)
+
+[Answer](Dockerfile)
