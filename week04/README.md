@@ -180,13 +180,11 @@ Compose 是一個用於定義和運行多個 Docker 容器應用程序的工具�
 
 - 定義您的應用程序的映像檔
 
-- 定義組成您的應用程序的服務，使用 **docker-compose.yml** 管理應用程序運行的組態。
+- 定義組成您的應用程序的服務，使用 **[docker-compose.yml](docker-compose.yml)** 管理應用程序運行的組態。
 
 - 運行 Docker compose 命令啟動並運行你的整個應用程序
 
 - Docker Compose samples: https://github.com/docker/awesome-compose
-
-[docker-compose.yml](docker-compose.yml)
 
 ##### Install Docker Compose
 
