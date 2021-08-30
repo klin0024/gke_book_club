@@ -246,7 +246,7 @@ https://github.com/klin0024/uploader
 
 - podman-docker: 使用 podman 模擬 Docker CLI，讓 Docker compose 可以藉由 podman-docker 介面，運行多的 Podman 容器
 
-### access Artifact Registry with service account
+### Access Artifact Registry with Service Account
 
 - create service account and download key file
 
