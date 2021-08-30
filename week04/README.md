@@ -114,13 +114,13 @@ skopeo inspect
 - Copy an image
 
 ```
-skopeo copy
+skopeo copy --src-creds --dest-creds
 ```
 
 - Synchronize images between container registries and local directories
 
 ```
-skopeo sync
+skopeo sync --src docker --dest docker --src-creds --dest-creds
 ```
 
 ### buildah
@@ -245,3 +245,24 @@ https://github.com/klin0024/uploader
 - instruction: https://www.redhat.com/sysadmin/podman-docker-compose
 
 - podman-docker: 使用 podman 模擬 Docker CLI，讓 Docker compose 可以藉由 podman-docker 介面，運行多的 Podman 容器
+
+### access Artifact Registry with service account
+
+- create service account and download key file
+
+- login Artifact Registry
+
+```
+podman login -u _json_key -p "$(cat serveraccount.key)" https://us-central1-docker.pkg.dev
+```
+
+```
+base64 serveraccount.key > serveraccount.key.base64
+podman login -u _json_key_base64 -p "$(cat serveraccount.key.base64)" https://us-central1-docker.pkg.dev
+```
+
+- registry authentication file
+
+```
+${XDG_RUNTIME_DIR}/containers/auth.json
+```
