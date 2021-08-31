@@ -290,3 +290,10 @@ RepicaSet 是通過一組字段來定義的，包括一個用來識別可獲得�
 
 [Answer](Deployment/exam07-answer.yml)
 
+### StatefulSet
+
+### DaemonSet
+
+### Job
+
+### CronJob

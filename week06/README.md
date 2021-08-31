@@ -7,6 +7,14 @@
 
 - Kubernetes為Pod提供自己的IP地址和一組Pod的單個DNS名稱，但是Pod的IP和DNS名稱並不固定，所以需要Service在它們之間進行負載平衡，Service會提供固定的IP和DNS名稱
 
+##### ClusterIP
+
+##### NodePort
+
+##### LoadBalancer
+
+##### Headless
+
 比較 |ClusterIP |NodePort |LoadBalancer |Headless
 :---|:---|:---|:---|:---
 對外 |N |Y |Y |N
@@ -69,3 +77,32 @@
 - 流量路由由Ingress資源上定義的規則控制，可以定義多個路由規則
 
 - 可以將Ingress配置為提供服務外部可訪問的URL，作為負載平衡的入口，並將SSL綁定在Ingress的入口上
+
+### ServiceAccount
+
+### RBAC
+
+##### role
+
+##### ClusterRole
+
+##### RoleBinding
+
+##### ClusterRoleBinding
+
+
+### PersistentVolumeClaim
+
+### PersistentVolume
+
+### StorageClass
+
+### Secret
+
+### ConfigMap
+
+### NetworkPolicy
+
+### ResourceQuota
+
+### LimitRange
