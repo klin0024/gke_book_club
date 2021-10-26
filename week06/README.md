@@ -90,9 +90,9 @@
 
 ### ServiceAccount
 
-- ServiceAccount 是為了方便Pod 裡面的進程調用Kubernetes API 或其他外部服務而設計
+- ServiceAccount (SA)是為了方便Pod 裡面的進程調用Kubernetes API 或其他外部服務而設計
 
-- 每個ServiceAccount 會創建一個Token，透過Token可以存取相應權限在Kubernetes的資源
+- 每個SA會創建一個Token，透過Token可以存取相應權限在Kubernetes的資源
 
 ### RBAC
 
@@ -103,6 +103,7 @@
 - Role或ClusterRole包含代表一組權限，權限是累加的（沒有拒絕規則）
 
 - 如果要在命名空間中定義角色，請使用Role
+
 - 如果要在群集範圍內定義角色，請使用ClusterRole
 
 ##### RoleBinding & ClusterRoleBinding
@@ -141,10 +142,38 @@
 
 ### Secret
 
+- Secret可讓您存儲和管理敏感信息，例如密碼，OAuth令牌和ssh密鑰
+
+- Secret與ConfigMap用法一致，差別是一個是存儲機敏數據，一個是存儲一般數據
+
+
 ### ConfigMap
+
+- ConfigMap (CM)是用於非機密數據存儲
+
+- Pod可以將CM用作環境變量，命令行參數或配置文件中的靜態文件
+
+- CM允許您將容器環境的配置與您的應用程式進行解耦，方便您的應用程序進行移植
 
 ### NetworkPolicy
 
+- NetworkPolicy 用於管理Pod進去或出去的網路流量
+
+- NetworkPolicy 通過以下 3 個標識符的組合來標識：
+  - 允許的其他 Pod
+  - 允許的NameSpace
+  - 允許的IP 地址
+
 ### ResourceQuota
 
+- ResourceQuota (QUOTA)定義的資源配額，限制每個命名空間使用的總資源數量
+
+- QUOTA可以按類型限制可在命名空間中創建的資源數量，以及該命名空間中的資源可能消耗的計算資源總量
+
+
 ### LimitRange
+
+- 默認情況下，容器在Kubernetes集群上是無限制計算資源(CPU和Memory)的使用
+
+- LimitRange用於限制Pod或Container資源消耗及要求的最低資源
+
