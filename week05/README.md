@@ -28,7 +28,7 @@ Kubernetes API服務器，Kubernetes 所有組件都是與Kubernetes API溝通�
 一致性和高可用性的鍵值資料庫，用於儲存Kubernetes的數據
 
 
-##### Worker Node
+##### Master Node & Worker Node
 
 - kubelet
 
