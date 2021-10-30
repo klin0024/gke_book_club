@@ -88,6 +88,18 @@
 
 - 可以將Ingress配置為提供服務外部可訪問的URL，作為負載平衡的入口，並將SSL綁定在Ingress的入口上
 
+- Ingress 有2個要素
+  - Ingress object: 一個靜態定義yaml,包含路由規則集合
+  - Ingress controller: 讀取Ingress object 並實際處理路由規則的應用程序或程序
+
+- Ingress controller的運行方式各不相同。通常有兩種模式 
+  - Proxy Mode: 控制器為節點上運行的 pod/deployment，並將自身作為服務暴露在外部, 如: Nginx Ingress Controller, Istio Ingress Gateway
+
+  ![nginx](nginx_ingress.png)
+  - Load Balancer Mode: 控制器與外部HTTP LB一起工作, 如: GKE Ingress Controller, F5 BIG-IP
+
+  ![gke](gke_ingress.png)
+
 ### ServiceAccount
 
 - ServiceAccount (SA)是為了方便Pod 裡面的進程調用Kubernetes API 或其他外部服務而設計

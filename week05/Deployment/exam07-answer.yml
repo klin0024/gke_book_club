@@ -20,4 +20,3 @@ spec:
   selector:
     matchLabels:
       app: myapp
-      app: myapp
