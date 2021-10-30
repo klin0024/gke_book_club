@@ -91,18 +91,13 @@
   - Ingress Object: 一個靜態定義yaml,包含路由規則集合
   - Ingress Controller: 讀取Ingress object 並實際處理路由規則的應用程序或程序
 
-- Ingress controller的運行方式各不相同。通常有兩種模式 
+- Ingress controller的運行方式各不相同。通常有兩種模式
+  - Load Balancer Mode: 控制器與外部HTTP LB一起工作, 如: GKE Ingress Controller, F5 BIG-IP
   - Proxy Mode: 控制器為節點上運行的 pod/deployment，並將自身作為服務暴露在外部, 如: Nginx Ingress Controller, Istio Ingress Gateway
 
-  ![nginx](images/nginx_ingress.png)
+##### GKE Ingress
 
-  - Load Balancer Mode: 控制器與外部HTTP LB一起工作, 如: GKE Ingress Controller, F5 BIG-IP
-
-  ![gke](images/gke_ingress.png)
-
-##### Example:
-
-- GKE Ingress Object
+![gke](images/gke_ingress.png)
 
 ```
 ---
@@ -119,7 +114,9 @@ spec:
     servicePort: 80
 ```
 
-- Nginx Ingress Object
+##### Nginx Ingress
+
+![nginx](images/nginx_ingress.png)
 
 ```
 apiVersion: networking.k8s.io/v1beta1
