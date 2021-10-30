@@ -77,7 +77,6 @@
 
 [Answer](Service/exam08-answer.yml)
 
-
 ### Ingress
 
 ![Ingress](images/05.JPG)
@@ -95,10 +94,11 @@
 - Ingress controller的運行方式各不相同。通常有兩種模式 
   - Proxy Mode: 控制器為節點上運行的 pod/deployment，並將自身作為服務暴露在外部, 如: Nginx Ingress Controller, Istio Ingress Gateway
 
-  ![nginx](nginx_ingress.png)
+  ![nginx](images/nginx_ingress.png)
+  
   - Load Balancer Mode: 控制器與外部HTTP LB一起工作, 如: GKE Ingress Controller, F5 BIG-IP
 
-  ![gke](gke_ingress.png)
+  ![gke](images/gke_ingress.png)
 
 ### ServiceAccount
 
